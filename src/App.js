@@ -7,7 +7,7 @@ function App() {
   
   return (
     <BrowserRouter>
-      <Route exact path="/Main"  component={Main}> <Main/> </Route>
+      <Route exact path="/"  component={Main}> <Main/> </Route>
     
     </BrowserRouter>
   );
