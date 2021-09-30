@@ -1,10 +1,9 @@
 import { useEffect,useState } from "react";
 import axios from "axios";
-import api from "./api";
 function Main() {
      
     const [pokemons,setPokemons] = useState([]);
-    const [pokemonName,setPokemonName] = useState([]);
+    
     const [pkmFull,setPkmFull] = useState([]);
 
   const getPokemons = async () =>{
@@ -14,7 +13,7 @@ function Main() {
     .catch((err)=>{
       console.error(err);
     })}
-    catch(err){ 
+    catch(err){  
 
     }
     
@@ -22,8 +21,8 @@ function Main() {
   
   const getPokemonsStats = async (pkmName) =>{
     try{
-    await axios.get(`https://pokeapi.co/api/v2/pokemon/${pkmName}`)
-    .then((response) => setPokemons(response.data.results))
+    await axios.get("https://pokeapi.co/api/v2/pokemon/" + pkmName)
+    .then((response) => pkmFull.push(response.data))
     .catch((err)=>{
       console.error(err);
     })}
@@ -34,25 +33,22 @@ function Main() {
   }
 
 
-  const [listaNome,setListaNome] = useState();
-
   useEffect(() => {
+    getPokemons();
     
-        getPokemons(); 
-        
-        console.log(pokemons) 
-     
-
+     pokemons.map(function(nome, i){
+       getPokemons(nome.name)
+     })
+    
   },[])
-
-
-  console.log(pokemons.results)
-
+  
+  console.log(pokemons)
+  console.log(pkmFull)
   return (
     <div className="App">
       <ul>
           
-      {pokemons.map((pokemons,index) => (<li key={index}> {pokemons.name}</li>))}
+      {pkmFull.map((pkm) =>(<li>{pkm.name}</li>))}
       </ul>
     </div>
   );
