@@ -1,0 +1,19 @@
+html,body,pre,code,kbd,samp{
+    font-family:"Kongtext";
+    margin: 0px;
+    padding-left: 0px;    
+    padding-right: 0px;
+}
+.mainC{
+    height:100vh;
+}
+.iconSize{
+    height:3.5rem;
+}
+.appbar{
+    background-color: #B22222!important;
+}
+
+.cardpk span{
+    font-size:28px
+}
