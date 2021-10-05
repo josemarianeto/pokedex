@@ -4,11 +4,12 @@ import axios from "axios";
 import Container from "@material-ui/core/Container"
 import Box from "@material-ui/core/Box"
 
-import { AppBar, Toolbar, Typography, CardContent , Card, CardHeader, Avatar, CardMedia } from "@material-ui/core";
+import { AppBar, Toolbar, Typography, CardContent , Card, CardHeader, Avatar, CardMedia,Grid } from "@material-ui/core";
 import "./main.css";
+import { padding } from "@material-ui/system";
 function Main() {
       
-    const [pokemons,setPokemons] = useState([]);
+    const [pokemon,setPokemon] = useState([]);
     
     const [pkmFull,setPkmFull] = useState([]);
 
@@ -24,17 +25,19 @@ function Main() {
     data: '{"query":"query samplePokeAPIquery {pokemon_v2_pokemon(where: {id: {_lt: 152}}) {id name pokemon_v2_pokemontypes(order_by: {pokemon_v2_type: {}}){pokemon_v2_type {id name }}}}","operationName":"samplePokeAPIquery"}'
   };
   
-
-
-  useEffect(() => {
-    axios.request(options).then(function (response) {
-      setPokemons(response.data);
+  const catchAll = async () => {
+    await axios.request(options).then((response) =>  {
+      setPokemon(response.data.data.pokemon_v2_pokemon);
     }).catch(function (error) {
       console.error(error);
     });
-    
+  } 
+
+  useEffect(() => { 
+    catchAll();
+    console.log(pokemon)
   },[])
- 
+  console.log(pokemon)
   return (
     <Box className="mainC" maxWidth="xxl">
       <AppBar 
@@ -54,33 +57,32 @@ function Main() {
           sx={{flexGrow:1,display:{sm:'block',textAlign:"center",marginTop:'2.5rem'}}}
           ><p className="nes-ballon from-left">Pokedex 1 Gen  <i className="nes-ash"></i></p></Typography>
         </Box>
-        <Box className="nes-container">
-          <Card className="nes-container cardpk" sx={{maxWidth: 350}}>
-            <CardHeader sx={{fontSize:'22px'}}
-            avatar={<Avatar sx={{width:90,height:90}}>
-            
-              <i className="nes-pokeball"/>
-            </Avatar> 
-            }
-            title="Pokemon"
-            subheader="Types"
-            />
-            <CardMedia className=""
-              component="img"
-              height="300"
-              width="450"
-              image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-              alt="Bulbasaur"
-            />
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                This impressive paella is a perfect party dish and a fun meal to cook
-                together with your guests. Add 1 cup of frozen peas along with the mussels,
-                if you like.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Box>
+        <Grid className="nes-container" container  xs={{padding:0}}>
+        {pokemon.map((pkm) =>{
+    return(
+    <Grid item lg={4} md={6} sm={6} xs={12}>
+     <Card className="nes-container cardpk" id={pkm.id} xs={{padding:0}}>
+     <CardHeader sx={{fontSize:'22px'}} xs={{padding:0,fontSize:'12px'}}
+     avatar={<Avatar sx={{width:90,height:90}} xs={{width:0,height:0,display:'none',justifyContent:'center',alignItems:'center'}} >
+     
+       <i xs={{display: 'none'}} className="nes-pokeball"/>
+     </Avatar> 
+     }
+     title={pkm.name}
+     subheader={pkm.pokemon_v2_pokemontypes.map((type) =>{return(  <span>{type.pokemon_v2_type.name + " "}</span>  )})} 
+     />
+     <CardMedia className=""
+       component="img"
+       height="100%"
+       width="100%"
+       image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pkm.id}.png`}
+       alt={"pokemon : " + pkm.name }
+     />
+    
+     </Card></Grid>
+    )
+  })}
+        </Grid>
       </Box>
     </Box>
   );
