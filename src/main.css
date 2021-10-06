@@ -13,7 +13,126 @@ html,body,pre,code,kbd,samp{
 .appbar{
     background-color: #B22222!important;
 }
-
+.cardpk{
+    justify-content:space-between;
+}
 .cardpk span{
     font-size:28px
+}
+.cardpk:hover{
+    width:  103%;
+    z-index: 30!important;
+}
+.progressoCard{
+    margin-top: 0.1rem;
+    height:30px;
+    width:100%;
+}
+
+.spanT{
+    text-transform:capitalize;
+}
+.types{    
+    background-color:gray;
+    border-radius: 0.4rem;
+    padding: 10px;
+    margin-right: 9px;
+}
+.grass{
+    background-color:green;
+    color:white;
+}
+.poison{
+    background-color:purple;
+    color:white;
+}
+.fire{
+    background-color:red;
+    color:white;
+}
+.water{
+    background-color:dodgerblue;
+    color:white;
+}
+.flying{
+    background-color:skyblue;   
+}
+.bug{
+    background-color:#ADFF2F;
+    color:white;
+}
+.fairy{
+    background-color:hotpink;
+    color:white;
+}
+.psychic{
+    background-color:#CD1076;
+    color:white;
+}
+.fighting{
+    background-color:#EE4000;
+    color:white;
+}
+.rock{
+    background-color:#8B814C;
+    color:white;
+}
+.ground{
+    background-color:#CD661D;
+    color:white
+}
+.normal{
+    background-color:#FF7256;
+    color:white;
+}
+.electric{
+    background-color:  #eeb422;
+    color:white;
+}
+.steel{
+    background-color:#6E7B8B;
+    color:white
+}
+.ice{
+    background-color: #00CDCD;
+    color:white;
+}
+.ghost{
+    background-color: #BF3EFF;
+    color:white;
+}
+.dragon {
+    background-color: darkcyan;
+    color:white;
+}
+.btnDiv{
+    align-items:center;
+    justify-items:center;
+}
+.btnDiv Button {
+    font-size: 16px;
+    border-radius: 0.4rem;
+    padding: 10px;
+    margin-right: 9px;
+}
+@media (max-width: 768px){
+    .mainContent{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+@media (max-width: 390px){
+    .pokeballCard{
+        display:none;
+    }
+    .chAvatar{
+        display:none!important;
+    }
+    .MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault chAvatar css-10tn5n6-MuiAvatar-root{
+        display:none;
+    }
+}
+
+.MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-9kt8tm-MuiGrid-root:hover {
+    background-color: #d3d3d3;
 }

@@ -33,3 +33,12 @@
   {pokemon.map((pkm) =>{ 
     (<li>{pkm.pokemon_v2_pokemon.name}</li>
   )})}
+
+
+
+
+  <Typography variant="body" color="text.secondary">
+  {pkm.stats.map((stats) => {return (<Box nowrap> <span className="statusName">{stats.stat.name}</span>
+    <progress  class="nes-progress is-primary progressoCard" value={stats.base_stat} max="100"/> </Box>)  })}
+   
+  </Typography> 
