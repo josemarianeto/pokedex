@@ -10,25 +10,26 @@ function Main() {
   const [pkmFull] = useState([]);
   
   const  pkmFF = async () => {
-    if(pkmFull.length){
-      return pkmFull;
-    }else{
+    if(pkmFF.length > 1){
+      return pkmFull()
+    }
+    else{
     for(let i =1;i <=151;i++){
-      axios.request({method: 'GET', url: `https://pokeapi.co/api/v2/pokemon/${i}`})
+      await axios.request({method: 'GET', url: `https://pokeapi.co/api/v2/pokemon/${i}`})
       .then(function (response) {
       pkmFull.push(response.data)
     })
     .catch(function (error) {
       console.error(error);
     
-    })}
+    })}}
   }; 
-  }
+  
 
 
   useEffect(() => {
     pkmFF();
-  })
+  },[])
   
   pkmFull.sort(function(a,b){return a.id - b.id});  
   

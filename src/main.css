@@ -132,7 +132,3 @@ html,body,pre,code,kbd,samp{
         display:none;
     }
 }
-
-.MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-4 MuiGrid-grid-lg-3 css-9kt8tm-MuiGrid-root:hover {
-    background-color: #d3d3d3;
-}
