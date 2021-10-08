@@ -15,12 +15,17 @@ html,body,pre,code,kbd,samp{
 }
 .cardpk{
     justify-content:space-between;
+    
 }
 .cardpk span{
     font-size:28px
 }
+.gridBrabo{
+    padding: 20px;
+    
+}
 .cardpk:hover{
-    width:  103%;
+    
 }
 .progressoCard{
     margin-top: 0.1rem;
@@ -119,6 +124,23 @@ html,body,pre,code,kbd,samp{
         margin-left: 0px;
         margin-right: 0px;
     }
+    .types{
+        margin-top: 20px;
+    }
+}
+@media (max-width:1630px){
+    .gridBrabo{
+        padding: 10px;
+        
+    }
+
+}
+@media (min-width:899px) and (max-width: 1552px){
+    .types{
+        font-size:22px!important ;
+        padding: 7px;
+        
+    }
 }
 @media (max-width: 390px){
     .pokeballCard{
@@ -130,4 +152,16 @@ html,body,pre,code,kbd,samp{
     .MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault chAvatar css-10tn5n6-MuiAvatar-root{
         display:none;
     }
+    .types{
+        font-size:12px;
+        margin-top: 20px;
+    }
+    .spanT{
+        font-size:7px;
+    }
+    .gridBrabo{
+        padding: 10px;
+        
+    }
 }
+

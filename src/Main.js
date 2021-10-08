@@ -90,18 +90,18 @@ finalGetPokemons();
             sx={{ flexGrow: 1, display: { sm: 'block', textAlign: "center", marginTop: '2.5rem' } }}
           ><p className="nes-ballon from-left">Pokedex 1 Gen  <i className="nes-ash"></i></p></Typography>
         </Box>
-        <Grid className="gridBrabo" container xs={{ margin: 0  }}>
+        <Grid className="" container xs={{ margin: 0,justifyContent:'space-between',padding:10 }}>
         {(pkmFull.map((pkm) => {
   return (
-    <Grid  id={pkm.id} item lg={3} md={4} sm={6} xs={12} >
+    <Grid className="gridBrabo"  id={pkm.id} item  lg={3} md={6} sm={12} xs={12} >
       
-      <Card elevation={24} className=" cardpk" id={pkm.id}  xs={{ padding: 0 }}>
+      <Card elevation={24} className=" cardpk" id={pkm.id}  lg={{ padding: 0 }}>
         <CardHeader id={pkm.id} sx={{ fontSize: '22px' }} xs={{ padding: 0, fontSize: '12px' }}
           avatar={<Avatar className="chAvatar" sx={{ width: 90, height: 90 }} xs={{display: 'none'}}>
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pkm.id}.png`}  alt={`Pokemon Icon ${pkm.name}`}/>
           </Avatar>}
           title={<span className="spanT">{pkm.name}</span>}
-          subheader={pkm.pokemon_v2_pokemontypes.map((type) => { return (<span className={`spanT types ${type.pokemon_v2_type.name}`} id={type.pokemon_v2_type.id}>{ type.pokemon_v2_type.name + " "}</span>) })}
+          subheader={pkm.pokemon_v2_pokemontypes.map((type) => { return (<span className={` types ${type.pokemon_v2_type.name} spanT`} id={type.pokemon_v2_type.id}>{ type.pokemon_v2_type.name + " "}</span>) })}
         />
         <CardMedia className="" 
           component="img"
