@@ -21,7 +21,6 @@ html,body,pre,code,kbd,samp{
 }
 .cardpk:hover{
     width:  103%;
-    z-index: 30!important;
 }
 .progressoCard{
     margin-top: 0.1rem;
