@@ -121,7 +121,6 @@ finalGetPokemons();
     </Grid>)}))}
         </Grid>
       </Box>
-      <Button onClick={handleOpen}>Open modal</Button>
     </Box>
   );
 }
