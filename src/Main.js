@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Box from "@material-ui/core/Box"
-import { AppBar, Toolbar,Skeleton,Button,Slide,Modal, Typography, CardContent, Card, CardHeader, Avatar, CardMedia, Grid, getCardActionAreaUtilityClass } from "@material-ui/core";
+import { AppBar, Toolbar,Skeleton,Button,Slide,Modal, Typography, CardContent,Paper, Card, CardHeader, Avatar, CardMedia, Grid, getCardActionAreaUtilityClass } from "@material-ui/core";
 import "./main.css";
 
 function Main() {
@@ -12,7 +12,9 @@ function Main() {
   const [geracao,setGeracao] = useState(151);
   const [initialRender,setInitialRender] = useState(true);
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = (id,name) => {
+    setOpen(true);
+  }
   const handleClose = () => setOpen(false);
 
   const options = {
@@ -20,7 +22,7 @@ function Main() {
     url: 'https://beta.pokeapi.co/graphql/v1beta',
     headers: {'Content-Type': 'application/json',
   'Acess-Control-Allow-Origin': '*'},
-    data:'{"query":"query samplePokeAPIquery {pokemon_v2_pokemon(order_by: {id: asc}, limit: 151) {id name pokemon_v2_pokemontypes(order_by: {pokemon_v2_type: {}}) {pokemon_v2_type {id name}} height order pokemon_species_id base_experience pokemon_v2_pokemonstats {base_stat id      pokemon_v2_stat {        name      }    }  }}","operationName":"samplePokeAPIquery"}'  };
+    data:'{"query":"query samplePokeAPIquery {pokemon_v2_pokemon(order_by: {id: asc}, limit: 6) {id name pokemon_v2_pokemontypes(order_by: {pokemon_v2_type: {}}) {pokemon_v2_type {id name}} height order pokemon_species_id base_experience pokemon_v2_pokemonstats {base_stat id      pokemon_v2_stat {        name      }    }  }}","operationName":"samplePokeAPIquery"}'  };
   
   const finalGetPokemons = async () =>{
     
@@ -66,9 +68,20 @@ finalGetPokemons();
  },[]);
 
   
+ const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+}; 
   
-  //pkmFull.sort(function(a,b){return a.id - b.id});  
-  
+
+
   console.log(pkmList); 
   console.log(pkmFull)
   return (
@@ -113,7 +126,7 @@ finalGetPokemons();
         />
 
         <CardContent>
-        <Box nowrap className="btnDiv"><Button variant="contained">Check</Button>
+        <Box nowrap className="btnDiv" onClick={handleOpen}><Button variant="contained">Check</Button>
        </Box>
         
         </CardContent>
@@ -121,6 +134,20 @@ finalGetPokemons();
     </Grid>)}))}
         </Grid>
       </Box>
+      <Modal 
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box  sx={style}>
+          <Paper>
+            <Card className="modalCards">
+
+            </Card>
+          </Paper>
+        </Box>
+      </Modal>
     </Box>
   );
 }
