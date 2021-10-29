@@ -47,74 +47,96 @@ html,body,pre,code,kbd,samp{
 }
 .grass{
     background-color:green;
+    border-color:green!important;
     color:white;
 }
 .poison{
     background-color:purple;
+    border-color:purple!important;
     color:white;
 }
 .fire{
     background-color:red;
+    border-color:red!important;
     color:white;
 }
 .water{
     background-color:dodgerblue;
+    border-color:dodgerblue!important;
     color:white;
 }
 .flying{
-    background-color:skyblue;   
+    background-color:skyblue;
+    border-color:skyblue!important;   
 }
 .bug{
     background-color:#ADFF2F;
+    border-color:#ADFF2F!important;
     color:white;
 }
 .fairy{
     background-color:hotpink;
+    border-color:hotpink!important;
     color:white;
 }
 .psychic{
     background-color:#CD1076;
+    border-color:#CD1076!important;
     color:white;
 }
 .fighting{
     background-color:#EE4000;
+    border-color:#EE4000!important;
     color:white;
 }
 .rock{
     background-color:#8B814C;
+    border-color:#8B814C!important;
     color:white;
 }
 .ground{
     background-color:#CD661D;
+    border-color:#CD661D!important;
     color:white
 }
 .normal{
     background-color:#FF7256;
+    border-color:#FF7256!important;
     color:white;
 }
 .electric{
     background-color:  #eeb422;
+    border-color:#eeb422!important;
     color:white;
 }
 .steel{
     background-color:#6E7B8B;
+    border-color:#6E7B8B!important;
     color:white
 }
 .ice{
     background-color: #00CDCD;
+    border-color:#00CDCD!important;
     color:white;
 }
 .ghost{
     background-color: #BF3EFF;
+    border-color:#BF3EFF!important;
     color:white;
 }
 .dragon {
     background-color: darkcyan;
+    border-color:darkcyan!important;
     color:white;
 }
 .dark{
     background-color: black;
+    border-color:black!important;
     color:white; 
+}
+.border{
+    border-radius: 0.9rem;
+    background-color:white!important;
 }
 .btnDiv{
     align-items:center;
@@ -125,6 +147,31 @@ html,body,pre,code,kbd,samp{
     border-radius: 0.4rem;
     padding: 10px;
     margin-right: 9px;
+}
+.imgModal{
+    height:150%;
+    width:150%;
+}
+.modalCards{
+    position: 'absolute';
+    top: '50%';
+    left: '50%';
+    transform: 'translate(-50%, -50%)';
+    width: '50vw'!important;
+    justify-content: 'center'!important;
+    align-items: 'center'!important;
+}
+.imgSquare{
+    border: solid 4px ;
+}
+.modalTitle h3{
+    padding: 0px;
+    font-weight:bold!important;}
+.modalContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 @media (max-width: 768px){
     .mainContent{
