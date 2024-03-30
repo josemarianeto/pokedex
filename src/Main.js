@@ -25,7 +25,7 @@ function Main() {
       'Content-Type': 'application/json',
       'Acess-Control-Allow-Origin': '*'
     },
-    data: '{"query":"query samplePokeAPIquery {pokemon_v2_pokemon(order_by: {id: asc}, limit: 900) {id name pokemon_v2_pokemontypes(order_by: {pokemon_v2_type: {}}) {pokemon_v2_type {id name}} height order pokemon_species_id base_experience pokemon_v2_pokemonstats {base_stat id      pokemon_v2_stat {        name      }    }  }}","operationName":"samplePokeAPIquery"}'
+    data: '{"query":"query samplePokeAPIquery {pokemon_v2_pokemon(order_by: {id: asc}, limit: 151) {id name pokemon_v2_pokemontypes(order_by: {pokemon_v2_type: {}}) {pokemon_v2_type {id name}} height order pokemon_species_id base_experience pokemon_v2_pokemonstats {base_stat id      pokemon_v2_stat {        name      }    }  }}","operationName":"samplePokeAPIquery"}'
   };
 
   const finalGetPokemons = async () => {
